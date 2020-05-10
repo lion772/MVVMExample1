@@ -12,12 +12,12 @@ import java.util.List;
 
 public class MainActivityViewModel extends ViewModel {
 
-    private MutableLiveData<List<NicePlace>> mNicePlaces;
+    private MutableLiveData<List<NicePlace>> mNicePlaces; //1) Pq não instancia aqui?
     private NicePlaceRepository mRepo;
     private MutableLiveData<Boolean> mIsUpdating = new MutableLiveData<>();
 
     public void init(){
-        if(mNicePlaces != null){
+        if(mNicePlaces != null){ //2) Pq faz validação caso seja nulo aqui?
             return;
         }
         mRepo = NicePlaceRepository.getInstance();
