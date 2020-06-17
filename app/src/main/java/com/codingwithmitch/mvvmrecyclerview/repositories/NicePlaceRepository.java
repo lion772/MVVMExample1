@@ -32,6 +32,11 @@ public class NicePlaceRepository {
         return data;
     }
 
+    public List<NicePlace> getNicePlacesList(){
+        setNicePlaces();
+        return dataSet;
+    }
+
     private void setNicePlaces(){
         dataSet.add(
                 new NicePlace("https://c1.staticflickr.com/5/4636/25316407448_de5fbf183d_o.jpg",
@@ -65,6 +70,7 @@ public class NicePlaceRepository {
                 new NicePlace("https://i.redd.it/obx4zydshg601.jpg",
                         "Austrailia")
         );
+
     }
 }
 

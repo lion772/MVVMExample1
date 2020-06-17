@@ -23,22 +23,24 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
     private List<NicePlace> mNicePlaces = new ArrayList<>();
     private Context mContext;
 
-    public RecyclerAdapter(Context context, List<NicePlace> nicePlaces) {
+    public RecyclerAdapter(Context context, List<NicePlace> nicePlaces)
+    {
         mNicePlaces = nicePlaces;
         mContext = context;
     }
 
     @NonNull
     @Override
-    public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
+    public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i)
+    {
         View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.layout_listitem, viewGroup, false);
         ViewHolder vh = new ViewHolder(view);
         return vh;
     }
 
     @Override
-    public void onBindViewHolder(@NonNull RecyclerView.ViewHolder viewHolder, int i) {
-
+    public void onBindViewHolder(@NonNull RecyclerView.ViewHolder viewHolder, int i)
+    {
         // Set the name of the 'NicePlace'
         ((ViewHolder)viewHolder).mName.setText(mNicePlaces.get(i).getTitle());
 
@@ -56,12 +58,13 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
         return mNicePlaces.size();
     }
 
-    private class ViewHolder extends RecyclerView.ViewHolder{
-
+    private class ViewHolder extends RecyclerView.ViewHolder
+    {
         private CircleImageView mImage;
         private TextView mName;
 
-        public ViewHolder(@NonNull View itemView) {
+        public ViewHolder(@NonNull View itemView)
+        {
             super(itemView);
             mImage = itemView.findViewById(R.id.image);
             mName = itemView.findViewById(R.id.image_name);

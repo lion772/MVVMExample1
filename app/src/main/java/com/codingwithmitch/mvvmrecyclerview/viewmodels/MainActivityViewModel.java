@@ -12,12 +12,12 @@ import java.util.List;
 
 public class MainActivityViewModel extends ViewModel {
 
-    private MutableLiveData<List<NicePlace>> mNicePlaces; //1) Pq não instancia aqui?
+    private MutableLiveData<List<NicePlace>> mNicePlaces;
     private NicePlaceRepository mRepo;
     private MutableLiveData<Boolean> mIsUpdating = new MutableLiveData<>();
 
     public void init(){
-        if(mNicePlaces != null){ //2) Pq faz validação caso seja nulo aqui?
+        if(mNicePlaces != null){ //Se for diferente de nulo, não busca no repositório
             return;
         }
         mRepo = NicePlaceRepository.getInstance();
@@ -31,8 +31,8 @@ public class MainActivityViewModel extends ViewModel {
             @Override
             protected void onPostExecute(Void aVoid) {
                 super.onPostExecute(aVoid);
-                List<NicePlace> currentPlaces = mNicePlaces.getValue();
-                currentPlaces.add(nicePlace);
+                List<NicePlace> currentPlaces = mNicePlaces.getValue(); //Tipo de lista não alterável
+                currentPlaces.add(nicePlace); //Se a lista é não alterável, por que aqui consegue adicionar novos itens e no kotlin tenho que passar para mutableList?
                 mNicePlaces.postValue(currentPlaces);
                 mIsUpdating.postValue(false);
             }

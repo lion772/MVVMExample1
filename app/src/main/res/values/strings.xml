@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">MVVMRecyclerView</string>
+    <string name="nice_places_title">Pontos Turísticos</string>
+    <string name="place_name">Nome do local</string>
+    <string name="url_imagem">Url da imagem</string>
+    <string name="add">Adicionar</string>
+    <string name="cancel">Cancelar</string>
 </resources>
